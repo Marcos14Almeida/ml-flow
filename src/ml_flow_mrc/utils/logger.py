@@ -9,6 +9,8 @@ init(autoreset=True)
 # New level
 NOTICE_LEVEL = 25
 logging.addLevelName(NOTICE_LEVEL, "NOTICE")
+
+
 class Logger:
 
     """
@@ -38,6 +40,7 @@ class Logger:
 
         self.logger.addHandler(ch)
 
+
     def debug(self, msg: str) -> None:
         """
         Log a debug-level message.
@@ -50,98 +53,49 @@ class Logger:
         """
         self.logger.debug(Fore.WHITE + msg + Style.RESET_ALL)
 
+
     def info(self, msg: str) -> None:
-        """
-        Log an info-level message in white.
-
-        Parameters
-        ----------
-        msg : str
-            The message to log.
-
-        """
+        """Log an info-level message in white."""
         self.logger.info(Fore.WHITE + msg + Style.RESET_ALL)
 
+
     def info_color(self, msg: str) -> None:
-        """
-        Log an info-level message in cyan.
-
-        Parameters
-        ----------
-        msg : str
-            The message to log.
-
-        """
+        """Log an info-level message in cyan."""
         self.logger.info(Fore.CYAN + msg + Style.RESET_ALL)
 
+
     def header(self, msg: str) -> None:
-        """
-        Log a header-style message surrounded by green hash lines.
-
-        Parameters
-        ----------
-        msg : str
-            The header text to log.
-
-        """
+        """Log a header-style message surrounded by green hash lines."""
         self.logger.info(Fore.GREEN + "#" * 30 + Style.RESET_ALL)
         self.logger.info(Fore.GREEN + msg + Style.RESET_ALL)
         self.logger.info(Fore.GREEN + "#" * 30 + Style.RESET_ALL)
 
+
     def notice(self, msg: str) -> None:
-        """
-        Log a custom notice-level message in yellow.
-
-        Parameters
-        ----------
-        msg : str
-            The message to log.
-
-        """
+        """Log a custom notice-level message in yellow."""
         self.logger.log(NOTICE_LEVEL, Fore.YELLOW + msg)
 
+
     def warning(self, msg: str) -> None:
-        """
-        Log a warning-level message in yellow.
-
-        Parameters
-        ----------
-        msg : str
-            The message to log.
-
-        """
+        """Log a warning-level message in yellow."""
         self.logger.warning(Fore.YELLOW + msg + Style.RESET_ALL)
 
+
     def error(self, msg: str) -> None:
-        """
-        Log an error-level message in red.
-
-        Parameters
-        ----------
-        msg : str
-            The message to log.
-
-        """
+        """Log an error-level message in red."""
         self.logger.error(Fore.RED + msg + Style.RESET_ALL)
 
+
     def critical(self, msg: str) -> None:
-        """
-        Log a critical-level message in magenta.
-
-        Parameters
-        ----------
-        msg : str
-            The message to log.
-
-        """
+        """Log a critical-level message in magenta."""
         self.logger.critical(Fore.MAGENTA + msg + Style.RESET_ALL)
 
 
 def log_run_time(start: float) -> float:
     """Calculate and log the elapsed runtime since a given start timestamp."""
     running_time = time.time() - start
-    logg.info(f"Running time: {running_time:.2f} seconds")
+    app_log.info(f"Running time: {running_time:.2f} seconds")
     return running_time
 
 
-logg = Logger()
+app_log = Logger()

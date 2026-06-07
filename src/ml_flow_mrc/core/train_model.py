@@ -1,9 +1,11 @@
 import mlflow
 import mlflow.sklearn
 from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+
+from ml_flow_mrc.utils.logger import app_log
 
 
 def train_and_log() -> None:
@@ -11,7 +13,7 @@ def train_and_log() -> None:
     Train the model and log the results.
 
     This function runs the training process and records relevant
-    metrics or messages using the configured logger.
+    metrics or messages using the configured app_log.
     """
 
     # Load dataset
@@ -32,5 +34,4 @@ def train_and_log() -> None:
         mlflow.log_metric("accuracy", acc)
         mlflow.sklearn.log_model(model, name="model", serialization_format="skops")
 
-
-    print(f"Model trained and logged with accuracy: {acc:.2f}")
+    app_log.info(f"Model trained and app_loged with accuracy: {acc:.2f}")

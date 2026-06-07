@@ -31,7 +31,7 @@ ml-flow/
 │       ├── core/
 │       │   └── business_logic.py
 │       ├── utils/
-│       │   ├── logger.py
+│       │   ├── app_loger.py
 │       ├── config.py
 │       └── main.py
 ├── tests/
