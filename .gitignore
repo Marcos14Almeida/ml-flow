@@ -19,5 +19,11 @@ venv/
 # ruff cache
 .ruff_cache/
 
+# mypy cache
+.mypy_cache/
+
+# uv lock file
+uv.lock
+
 # .toml
 *.egg-info/
