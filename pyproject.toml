@@ -1,0 +1,30 @@
+[project]
+name = "project-template"
+version = "0.1.0"
+description = "A Python project"
+requires-python = ">=3.10"
+dependencies = [
+    # Runtime dependencies go here
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W"]
+ignore = ["E501"]  # Ignore long line warnings
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.setuptools.packages.find]
+where = ["src"]
